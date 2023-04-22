@@ -7,7 +7,28 @@
 ################
 
 sudo dnf -y groupinstall "Development Tools"
-sudo dnf -y install python ragel byacc flex autoconf automake lbzip2 gettext autogen libtool gperf gettext-devel meson ninja-build gcc-c++ libattr pkg-config which
+sudo dnf -y install python \
+     ragel \
+     byacc \
+     flex \
+     autoconf \
+     automake \
+     lbzip2 \
+     gettext \
+     autogen \
+     libtool \
+     gperf \
+     gettext-devel \
+     meson \
+     ninja-build \
+     gcc-c++ \
+     libattr \
+     pkg-config \
+     which \
+     cmake \
+     glib2-devel
+
+set -x
 
 . env.sh
 
@@ -20,7 +41,7 @@ check_result() {
         echo "SHIT HAPPENED."
         exit 42
     fi
-    echo "CURRENT DIR: " $(pwd)
+    echo "PREVIOUS DIR: " $(pwd)
 }
 
 ######################
@@ -190,7 +211,7 @@ cd ${magicdir}/pango
 cp meson.build meson.build.original
 grep -vwE "subdir\('tests'\)" meson.build.original > meson.build
 
-CFLAGS="$(pkg-config --cflags glib-2.0, cairo, pixman-1, fribidi, freetype2, fontconfig, expat) -s USE_PTHREADS" LDFLAGS="$(pkg-config --libs glib-2.0, cairo, pixman-1, fribidi, freetype2, fontconfig, expat) -lpthread" meson setup _build --prefix=${magicprefix} --cross-file=$MESON_CROSS --default-library=static --buildtype=release -Dintrospection=disabled && \
+CFLAGS="$(pkg-config --cflags glib-2.0, cairo, pixman-1, fribidi, freetype2, fontconfig, expat) -s USE_PTHREADS" LDFLAGS="$(pkg-config --libs glib-2.0, cairo, pixman-1, fribidi, freetype2, fontconfig, expat) -lpthread" meson setup _build --prefix=${magicprefix} --cross-file=$MESON_CROSS --default-library=static --buildtype=release -Dintrospection=disabled --force-fallback-for=pcre2,gvdb && \
     CFLAGS="$(pkg-config --cflags glib-2.0, cairo, pixman-1, fribidi, freetype2, fontconfig, expat) -s USE_PTHREADS" LDFLAGS="$(pkg-config --libs glib-2.0, cairo, pixman-1, fribidi, freetype2, fontconfig, expat) -lpthread" meson install -C _build
 
 check_result
