@@ -7,7 +7,7 @@
 ################
 
 sudo dnf -y groupinstall "Development Tools"
-sudo dnf -y install python ragel byacc flex autoconf automake lbzip2 gettext autogen libtool gperf gettext-devel meson ninja-build gcc-c++ libattr pkg-config
+sudo dnf -y install python ragel byacc flex autoconf automake lbzip2 gettext autogen libtool gperf gettext-devel meson ninja-build gcc-c++ libattr pkg-config which
 
 . env.sh
 
@@ -187,7 +187,7 @@ cd ${magicdir}/pango
 # remove test
 # because it uses something emscripten don't have?
 # like: g_io_channel_unix_new ?
-mv meson.build meson.build.original
+cp meson.build meson.build.original
 grep -vwE "subdir\('tests'\)" meson.build.original > meson.build
 
 CFLAGS="$(pkg-config --cflags glib-2.0, cairo, pixman-1, fribidi, freetype2, fontconfig, expat) -s USE_PTHREADS" LDFLAGS="$(pkg-config --libs glib-2.0, cairo, pixman-1, fribidi, freetype2, fontconfig, expat) -lpthread" meson setup _build --prefix=${magicprefix} --cross-file=$MESON_CROSS --default-library=static --buildtype=release -Dintrospection=disabled && \
