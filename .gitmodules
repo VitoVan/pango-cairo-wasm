@@ -16,3 +16,6 @@
 [submodule "libexpat"]
 	path = libexpat
 	url = https://github.com/libexpat/libexpat.git
+[submodule "fontconfig"]
+	path = fontconfig
+	url = https://gitlab.freedesktop.org/fontconfig/fontconfig.git
