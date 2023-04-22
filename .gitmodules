@@ -10,3 +10,6 @@
 [submodule "pixman"]
 	path = pixman
 	url = https://anongit.freedesktop.org/git/pixman
+[submodule "freetype"]
+	path = freetype
+	url = https://gitlab.freedesktop.org/freetype/freetype.git
