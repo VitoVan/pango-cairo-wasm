@@ -22,3 +22,6 @@
 [submodule "libffi"]
 	path = libffi
 	url = https://github.com/libffi/libffi.git
+[submodule "glib"]
+	path = glib
+	url = https://github.com/VitoVan/glib.git
