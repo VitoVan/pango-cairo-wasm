@@ -28,3 +28,6 @@
 [submodule "cairo"]
 	path = cairo
 	url = https://gitlab.freedesktop.org/cairo/cairo.git
+[submodule "harfbuzz"]
+	path = harfbuzz
+	url = https://github.com/harfbuzz/harfbuzz.git
