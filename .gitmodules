@@ -25,3 +25,6 @@
 [submodule "glib"]
 	path = glib
 	url = https://github.com/VitoVan/glib.git
+[submodule "cairo"]
+	path = cairo
+	url = https://gitlab.freedesktop.org/cairo/cairo.git
