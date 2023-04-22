@@ -13,3 +13,6 @@
 [submodule "freetype"]
 	path = freetype
 	url = https://gitlab.freedesktop.org/freetype/freetype.git
+[submodule "libexpat"]
+	path = libexpat
+	url = https://github.com/libexpat/libexpat.git
