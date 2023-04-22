@@ -7,9 +7,6 @@
 [submodule "libpng"]
 	path = libpng
 	url = https://github.com/glennrp/libpng.git
-[submodule "pixman"]
-	path = pixman
-	url = https://anongit.freedesktop.org/git/pixman
 [submodule "freetype"]
 	path = freetype
 	url = https://gitlab.freedesktop.org/freetype/freetype.git
