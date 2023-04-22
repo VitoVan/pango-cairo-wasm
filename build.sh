@@ -7,7 +7,7 @@
 ################
 
 sudo dnf -y groupinstall "Development Tools"
-sudo dnf -y install ragel byacc flex autoconf automake lbzip2 gettext autogen libtool gperf gettext-devel meson ninja-build gcc-c++
+sudo dnf -y install python ragel byacc flex autoconf automake lbzip2 gettext autogen libtool gperf gettext-devel meson ninja-build gcc-c++
 
 . env.sh
 
