@@ -14,13 +14,13 @@ sudo dnf -y install python ragel byacc flex autoconf automake lbzip2 gettext aut
 mkdir ${magicprefix}
 
 check_result() {
-    echo "CURRENT DIR: " $(pwd)
     if [ $? -eq 0 ]; then
         echo "SEEMS GOOD."
     else
         echo "SHIT HAPPENED."
         exit 42
     fi
+    echo "CURRENT DIR: " $(pwd)
 }
 
 ######################
