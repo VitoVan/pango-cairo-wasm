@@ -1,3 +1,6 @@
 [submodule "emsdk"]
 	path = emsdk
 	url = https://github.com/emscripten-core/emsdk.git
+[submodule "zlib"]
+	path = zlib
+	url = https://github.com/madler/zlib.git
