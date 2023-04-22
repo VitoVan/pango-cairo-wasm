@@ -34,3 +34,6 @@
 [submodule "pango"]
 	path = pango
 	url = https://github.com/VitoVan/pango.git
+[submodule "pixman"]
+	path = pixman
+	url = https://gitlab.freedesktop.org/pixman/pixman.git
