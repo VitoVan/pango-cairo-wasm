@@ -24,12 +24,15 @@ jobs:
         $emcc $PANGOCAIRO_FLAGS --embed-file ./fonts@/usr/share/fonts/ hello-pangocairo.c -o hello-pangocairo.html
         mkdir web
         mv hello-pangocairo.html hello-pangocairo.original.html
+        mv hello-cairo.html hello-cairo.original.html
         mv *.png web/
         mv *.js web/
         mv *.wasm web/
         mv *.html web/
         # https://github.com/gzuidhof/coi-serviceworker
         sed 's|</head>|<script src="coi-serviceworker.js"></script></head>|' web/hello-pangocairo.original.html > web/hello-pangocairo.html
+        # cairo don't need this, but it seems if we do not include this, shit will happen
+        sed 's|</head>|<script src="coi-serviceworker.js"></script><script src="no-coi.js"></script></head>|' web/hello-cairo.original.html > web/hello-cairo.html
     - name: Deploy GitHub Pages
       run: |
         git worktree add gh-pages
