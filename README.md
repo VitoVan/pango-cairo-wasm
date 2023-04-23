@@ -34,7 +34,7 @@ pkg-config --libs --cflags pangocairo
 This build.sh only compiles on Fedora, if you can't get one, please modify it before execution.
 
 ```bash
-git clone git@github.com:VitoVan/pango-cairo-wasm.git
+git clone https://github.com/VitoVan/pango-cairo-wasm.git
 cd pango-cairo-wasm
 git submodule init
 git submodule update
