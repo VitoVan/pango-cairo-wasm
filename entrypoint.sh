@@ -1,3 +1,3 @@
 #!/bin/sh
-. env.sh
+. /magic/env.sh
 exec "$@"

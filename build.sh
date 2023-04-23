@@ -32,7 +32,35 @@ set -x
 
 . env.sh
 
-mkdir ${magicprefix}
+mkdir -p ${magicprefix}
+
+
+# copied from:
+# https://gist.github.com/kleisauke/acfa1c09522705efa5eb0541d2d00887
+cat > "${magicdir}/emscripten-crossfile.meson" <<END
+[binaries]
+c = 'emcc'
+cpp = 'em++'
+ld = 'wasm-ld'
+ar = 'emar'
+ranlib = 'emranlib'
+pkgconfig = ['emconfigure', 'pkg-config']
+# https://docs.gtk.org/glib/cross-compiling.html#cross-properties
+[properties]
+growing_stack = true
+have_c99_vsnprintf = true
+have_c99_snprintf = true
+have_unix98_printf = true
+# Ensure that '-s PTHREAD_POOL_SIZE=*' is not injected into .pc files
+[built-in options]
+c_thread_count = 0
+cpp_thread_count = 0
+[host_machine]
+system = 'emscripten'
+cpu_family = 'wasm32'
+cpu = 'wasm32'
+endian = 'little'
+END
 
 check_result() {
     if [ $? -eq 0 ]; then
