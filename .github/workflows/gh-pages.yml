@@ -23,6 +23,9 @@ jobs:
         export PANGOCAIRO_FLAGS="$($pkg_config --libs --cflags glib-2.0, gobject-2.0, cairo, pixman-1, freetype2, fontconfig, cairo, expat, harfbuzz, pangocairo) -s USE_SDL=2 -s EMULATE_FUNCTION_POINTER_CASTS -s PTHREAD_POOL_SIZE=10 -s USE_PTHREADS=1 -s ASYNCIFY"
         $emcc $PANGOCAIRO_FLAGS --embed-file ./fonts@/usr/share/fonts/ hello-pangocairo.c -o hello-pangocairo.html
         mkdir web
+        cp hello-pangocairo.html hello-pangocairo.original.html
+        # https://github.com/gzuidhof/coi-serviceworker
+        sed 's/</head>/<script src="coi-serviceworker.js"></script></head>' hello-pangocairo.original.html > hello-pangocairo.html
         mv *.js web/
         mv *.wasm web/
         mv *.html web/
