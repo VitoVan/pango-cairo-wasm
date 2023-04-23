@@ -45,7 +45,7 @@ pkg-config --libs --cflags pangocairo
 ```bash
 export CAIRO_FLAGS="$(pkg-config --libs --cflags glib-2.0, gobject-2.0, cairo, pixman-1, freetype2, fontconfig, cairo, expat, harfbuzz) -s USE_SDL=2 -s USE_PTHREADS=0 -s ASYNCIFY"
 
-curl -sSLo https://raw.githubusercontent.com/VitoVan/pango-cairo-wasm/main/hello-cairo.c
+curl -LO https://raw.githubusercontent.com/VitoVan/pango-cairo-wasm/main/hello-cairo.c
 emcc $CAIRO_FLAGS hello-cairo.c -o hello-cairo.html
 ```
 
@@ -53,12 +53,12 @@ emcc $CAIRO_FLAGS hello-cairo.c -o hello-cairo.html
 
 ```bash
 export PANGOCAIRO_FLAGS="$(pkg-config --libs --cflags glib-2.0, gobject-2.0, cairo, pixman-1, freetype2, fontconfig, cairo, expat, harfbuzz, pangocairo) -s USE_SDL=2 -s EMULATE_FUNCTION_POINTER_CASTS -s PTHREAD_POOL_SIZE=10 -s USE_PTHREADS=1 -s ASYNCIFY"
-curl -sSLo https://raw.githubusercontent.com/VitoVan/pango-cairo-wasm/main/hello-pangocairo.c
+curl -LO https://raw.githubusercontent.com/VitoVan/pango-cairo-wasm/main/hello-pangocairo.c
 # get yourself the fonts
 mkdir ./fonts
 cd fonts
-curl -sSLo https://raw.githubusercontent.com/VitoVan/pango-cairo-wasm/main/fonts/OpenSans-VariableFont_wdth,wght.ttf
-curl -sSLo https://raw.githubusercontent.com/VitoVan/pango-cairo-wasm/main/fonts/OpenSans-Italic-VariableFont_wdth,wght.ttf
+curl -LO https://raw.githubusercontent.com/VitoVan/pango-cairo-wasm/main/fonts/OpenSans-VariableFont_wdth,wght.ttf
+curl -LO https://raw.githubusercontent.com/VitoVan/pango-cairo-wasm/main/fonts/OpenSans-Italic-VariableFont_wdth,wght.ttf
 cd ..
 # compile
 emcc $PANGOCAIRO_FLAGS --embed-file ./fonts@/usr/share/fonts/ hello-pangocairo.c -o hello-pangocairo.html
@@ -67,7 +67,7 @@ emcc $PANGOCAIRO_FLAGS --embed-file ./fonts@/usr/share/fonts/ hello-pangocairo.c
 #### Start the debug server
 
 ```bash
-curl -sSLo https://raw.githubusercontent.com/VitoVan/pango-cairo-wasm/main/wasm-server
+curl -LO https://raw.githubusercontent.com/VitoVan/pango-cairo-wasm/main/wasm-server
 chmod +x wasm-server
 ./wasm-server
 ```
