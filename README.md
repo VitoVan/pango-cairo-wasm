@@ -4,6 +4,8 @@ Compile a Cairo / Pango / PangoCairo based application from C to WebAssembly.
 
 Try it online (6 ~ 10M):
 
+> If the links failed you, please [clone](https://github.com/VitoVan/pango-cairo-wasm/tree/gh-pages) and serve them locally with [wasm-server](https://github.com/VitoVan/pango-cairo-wasm/blob/main/wasm-server).
+
 **Cairo**: https://vitovan.com/pango-cairo-wasm/hello-cairo.html
 
 **PangoCairo**: https://vitovan.com/pango-cairo-wasm/hello-pangocairo.html
