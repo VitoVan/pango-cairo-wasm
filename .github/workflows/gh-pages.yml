@@ -24,6 +24,7 @@ jobs:
         $emcc $PANGOCAIRO_FLAGS --embed-file ./fonts@/usr/share/fonts/ hello-pangocairo.c -o hello-pangocairo.html
         mkdir web
         mv hello-pangocairo.html hello-pangocairo.original.html
+        mv *.png web/
         mv *.js web/
         mv *.wasm web/
         mv *.html web/
