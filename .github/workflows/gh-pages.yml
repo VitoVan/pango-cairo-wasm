@@ -28,7 +28,7 @@ jobs:
         mv *.wasm web/
         mv *.html web/
         # https://github.com/gzuidhof/coi-serviceworker
-        sed 's/</head>/<script src="coi-serviceworker.js"></script></head>' web/hello-pangocairo.original.html > web/hello-pangocairo.html
+        sed 's|</head>|<script src="coi-serviceworker.js"></script></head>|' web/hello-pangocairo.original.html > web/hello-pangocairo.html
     - name: Deploy GitHub Pages
       run: |
         git worktree add gh-pages
