@@ -215,3 +215,23 @@ CFLAGS="$(pkg-config --cflags glib-2.0, cairo, pixman-1, fribidi, freetype2, fon
     CFLAGS="$(pkg-config --cflags glib-2.0, cairo, pixman-1, fribidi, freetype2, fontconfig, expat) -s USE_PTHREADS" LDFLAGS="$(pkg-config --libs glib-2.0, cairo, pixman-1, fribidi, freetype2, fontconfig, expat) -lpthread" meson install -C _build
 
 check_result
+
+######################
+##### build emscripten ports
+######################
+
+embuilder build sdl2 && \
+    embuilder build sdl2_image && \
+    embuilder build sdl2_image_jpg && \
+    embuilder build sdl2_image_png && \
+    embuilder build sdl2_mixer && \
+    embuilder build sdl2_mixer_mp3 && \
+    embuilder build sdl2_mixer_none && \
+    embuilder build sdl2_net && \
+    embuilder build sdl2_ttf && \
+    embuilder build sdl2_gfx && \
+    embuilder build sdl2-mt && \
+    embuilder build mpg123 && \
+    embuilder build ogg
+
+check_result
