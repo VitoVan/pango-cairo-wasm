@@ -26,6 +26,7 @@ jobs:
         mkdir web
         mv hello-pangocairo.html hello-pangocairo.original.html
         mv hello-cairo.html hello-cairo.original.html
+        mv index.html index.original.html
         cp coi-serviceworker/coi-serviceworker.min.js web/coi-serviceworker.js
         mv *.png web/
         mv *.js web/
@@ -35,6 +36,8 @@ jobs:
         sed 's|</head>|<script src="coi-serviceworker.js"></script></head>|' web/hello-pangocairo.original.html > web/hello-pangocairo.html
         # cairo don't need this, but it seems if we do not include this, shit will happen
         sed 's|</head>|<script src="no-coi.js"></script><script src="coi-serviceworker.js"></script></head>|' web/hello-cairo.original.html > web/hello-cairo.html
+        # index.html don't need this either, but...
+        sed 's|</head>|<script src="no-coi.js"></script><script src="coi-serviceworker.js"></script></head>|' web/index.original.html > web/index.html
     - name: Deploy GitHub Pages
       run: |
         git worktree add gh-pages
