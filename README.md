@@ -1,6 +1,6 @@
 # PangoCairo on the Web
 
-[![ci](https://github.com/VitoVan/pango-cairo-wasm/actions/workflows/docker.yml/badge.svg)](https://github.com/VitoVan/pango-cairo-wasm/actions/workflows/docker.yml) ![Docker Pulls](https://img.shields.io/docker/pulls/vitovan/pango-cairo-wasm)
+[![docker build](https://github.com/VitoVan/pango-cairo-wasm/actions/workflows/docker.yml/badge.svg)](https://github.com/VitoVan/pango-cairo-wasm/actions/workflows/docker.yml) ![Docker Pulls](https://img.shields.io/docker/pulls/vitovan/pango-cairo-wasm?logo=docker) [![gh-pages](https://github.com/VitoVan/pango-cairo-wasm/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/VitoVan/pango-cairo-wasm/actions/workflows/gh-pages.yml)
 
 Compile [Cairo](https://www.cairographics.org/) / [Pango](https://docs.gtk.org/Pango/index.html) / [PangoCairo](https://docs.gtk.org/PangoCairo) based applications from C to WebAssembly.
 
