@@ -1,6 +1,6 @@
 # PangoCairo on the Web
 
-Compile a Cairo / Pango / PangoCairo based application from C to WebAssembly.
+Compile [Cairo](https://www.cairographics.org/) / [Pango](https://docs.gtk.org/Pango/index.html) / [PangoCairo](https://docs.gtk.org/PangoCairo) based applications from C to WebAssembly.
 
 Try it online (6 ~ 10M):
 
