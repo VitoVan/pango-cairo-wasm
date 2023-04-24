@@ -32,7 +32,7 @@ jobs:
         # https://github.com/gzuidhof/coi-serviceworker
         sed 's|</head>|<script src="coi-serviceworker.js"></script></head>|' web/hello-pangocairo.original.html > web/hello-pangocairo.html
         # cairo don't need this, but it seems if we do not include this, shit will happen
-        sed 's|</head>|<script src="coi-serviceworker.js"></script><script src="no-coi.js"></script></head>|' web/hello-cairo.original.html > web/hello-cairo.html
+        sed 's|</head>|<script src="no-coi.js"></script><script src="coi-serviceworker.js"></script></head>|' web/hello-cairo.original.html > web/hello-cairo.html
     - name: Deploy GitHub Pages
       run: |
         git worktree add gh-pages
