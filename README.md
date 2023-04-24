@@ -4,7 +4,7 @@
 
 Compile [Cairo](https://www.cairographics.org/) / [Pango](https://docs.gtk.org/Pango/index.html) / [PangoCairo](https://docs.gtk.org/PangoCairo) based applications from C to WebAssembly?
 
-Try it online (5 ~ 8M):
+Try it online (1.5 ~ 3.5 MB data transfer):
 
 > If the links failed you, please [clone](https://github.com/VitoVan/pango-cairo-wasm/tree/gh-pages) and serve them locally with [wasm-server](https://github.com/VitoVan/pango-cairo-wasm/blob/main/wasm-server).
 
