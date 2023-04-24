@@ -37,3 +37,6 @@
 [submodule "pixman"]
 	path = pixman
 	url = https://gitlab.freedesktop.org/pixman/pixman.git
+[submodule "coi-serviceworker"]
+	path = coi-serviceworker
+	url = https://github.com/gzuidhof/coi-serviceworker.git

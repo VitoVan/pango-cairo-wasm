@@ -14,6 +14,7 @@ jobs:
     - uses: actions/checkout@v3
       with:
         fetch-depth: 0
+        submodules: true
     - name: Build
       run: |
         export emcc="docker run --rm --name pcwa -v $(pwd):/app -w=/app vitovan/pango-cairo-wasm emcc"
@@ -25,11 +26,12 @@ jobs:
         mkdir web
         mv hello-pangocairo.html hello-pangocairo.original.html
         mv hello-cairo.html hello-cairo.original.html
+        cp coi-serviceworker/coi-serviceworker.min.js web/coi-serviceworker.js
         mv *.png web/
         mv *.js web/
         mv *.wasm web/
         mv *.html web/
-        # https://github.com/gzuidhof/coi-serviceworker
+        # Pango use pthread, so...
         sed 's|</head>|<script src="coi-serviceworker.js"></script></head>|' web/hello-pangocairo.original.html > web/hello-pangocairo.html
         # cairo don't need this, but it seems if we do not include this, shit will happen
         sed 's|</head>|<script src="no-coi.js"></script><script src="coi-serviceworker.js"></script></head>|' web/hello-cairo.original.html > web/hello-cairo.html
