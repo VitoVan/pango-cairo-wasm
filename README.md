@@ -6,11 +6,9 @@ Compile [Cairo](https://www.cairographics.org/) / [Pango](https://docs.gtk.org/P
 
 Try it online (1.5 ~ 3.5 MB data transfer):
 
-> If the links failed you, please [clone](https://github.com/VitoVan/pango-cairo-wasm/tree/gh-pages) and serve them locally with [wasm-server](https://github.com/VitoVan/pango-cairo-wasm/blob/main/wasm-server).
-
 **Cairo**: https://vitovan.com/pango-cairo-wasm/hello-cairo.html
 
-**PangoCairo**: https://vitovan.com/pango-cairo-wasm/hello-pangocairo.html
+**PangoCairo**: The pthreads used by Pango requires Web Workers require extra [HTTP HEADERS](https://web.dev/coop-coep/), and the [workarounds](https://dev.to/stefnotch/enabling-coop-coep-without-touching-the-server-2d3n) would break other pages on my website. So, please [download](https://github.com/VitoVan/pango-cairo-wasm/archive/refs/heads/gh-pages.zip) the files and [serve](https://github.com/VitoVan/pango-cairo-wasm/blob/main/wasm-server) them locally.
 
 Preview:
 
