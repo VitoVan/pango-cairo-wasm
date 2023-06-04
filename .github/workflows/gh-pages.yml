@@ -1,0 +1,55 @@
+name: gh-pages
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # To push a branch
+      pull-requests: write  # To create a PR from that branch
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        submodules: true
+    - name: Build
+      run: |
+        export emcc="docker run --rm --name pcwa -v $(pwd):/app -w=/app vitovan/pango-cairo-wasm emcc"
+        export pkg_config="docker run --rm --name pcwa -v $(pwd):/app -w=/app vitovan/pango-cairo-wasm pkg-config"
+        export CAIRO_FLAGS="$($pkg_config --libs --cflags glib-2.0, gobject-2.0, cairo, pixman-1, freetype2, fontconfig, cairo, expat, harfbuzz) -Oz -s USE_SDL=2 -s USE_PTHREADS=0 -s ASYNCIFY"
+        $emcc $CAIRO_FLAGS hello-cairo.c -o hello-cairo.html
+        export PANGOCAIRO_FLAGS="$($pkg_config --libs --cflags glib-2.0, gobject-2.0, cairo, pixman-1, freetype2, fontconfig, cairo, expat, harfbuzz, pangocairo) -Oz -s USE_SDL=2 -s EMULATE_FUNCTION_POINTER_CASTS -s PTHREAD_POOL_SIZE=10 -s USE_PTHREADS=1 -s ASYNCIFY"
+        $emcc $PANGOCAIRO_FLAGS --embed-file ./fonts@/usr/share/fonts/ hello-pangocairo.c -o hello-pangocairo.html
+        mkdir web
+        mv hello-pangocairo.html hello-pangocairo.original.html
+        mv hello-cairo.html hello-cairo.original.html
+        mv index.html index.original.html
+        cp coi-serviceworker/coi-serviceworker.min.js web/coi-serviceworker.js
+        mv *.png web/
+        mv *.js web/
+        mv *.wasm web/
+        mv *.html web/
+        # Pango use pthread, so...
+        # so... is so, but I'm removing this
+        # because it breaks all the pages under vitovan.com except this pango one
+        # sed 's|</head>|<script src="coi-serviceworker.js"></script></head>|' web/hello-pangocairo.original.html > web/hello-pangocairo.html
+        # cairo don't need this, but it seems if we do not include this, shit will happen
+        sed 's|</head>|<script src="no-coi.js"></script><script src="coi-serviceworker.js"></script></head>|' web/hello-cairo.original.html > web/hello-cairo.html
+        # index.html don't need this either, but...
+        sed 's|</head>|<script src="no-coi.js"></script><script src="coi-serviceworker.js"></script></head>|' web/index.original.html > web/index.html
+    - name: Deploy GitHub Pages
+      run: |
+        git worktree add gh-pages
+        git config user.name "Deploy from CI"
+        git config user.email ""
+        cd gh-pages
+        # Delete the ref to avoid keeping history.
+        git update-ref -d refs/heads/gh-pages
+        rm -rf *
+        mv ../web/* .
+        git add .
+        git commit -m "Deploy $GITHUB_SHA to gh-pages"
+        git push --force --set-upstream origin gh-pages
