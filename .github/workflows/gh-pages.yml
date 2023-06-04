@@ -33,7 +33,9 @@ jobs:
         mv *.wasm web/
         mv *.html web/
         # Pango use pthread, so...
-        sed 's|</head>|<script src="coi-serviceworker.js"></script></head>|' web/hello-pangocairo.original.html > web/hello-pangocairo.html
+        # so... is so, but I'm removing this
+        # because it breaks all the pages under vitovan.com except this pango one
+        # sed 's|</head>|<script src="coi-serviceworker.js"></script></head>|' web/hello-pangocairo.original.html > web/hello-pangocairo.html
         # cairo don't need this, but it seems if we do not include this, shit will happen
         sed 's|</head>|<script src="no-coi.js"></script><script src="coi-serviceworker.js"></script></head>|' web/hello-cairo.original.html > web/hello-cairo.html
         # index.html don't need this either, but...
