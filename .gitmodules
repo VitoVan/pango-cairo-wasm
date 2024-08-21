@@ -31,6 +31,7 @@
 [submodule "fribidi"]
 	path = fribidi
 	url = https://github.com/fribidi/fribidi.git
+	branch = master
 [submodule "pango"]
 	path = pango
 	url = https://github.com/VitoVan/pango.git
