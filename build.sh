@@ -30,7 +30,7 @@ sudo dnf -y install python \
 
 set -x
 
-. env.sh
+. ./env.sh
 
 mkdir -p ${magicprefix}
 
