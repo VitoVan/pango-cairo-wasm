@@ -30,7 +30,7 @@
 	url = https://github.com/harfbuzz/harfbuzz.git
 [submodule "fribidi"]
 	path = fribidi
-	url = https://github.com/fribidi/fribidi.git
+	url = https://github.com/notsilverhoft/fribidi
 [submodule "pango"]
 	path = pango
 	url = https://github.com/VitoVan/pango.git
