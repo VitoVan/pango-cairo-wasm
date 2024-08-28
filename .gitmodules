@@ -28,9 +28,6 @@
 [submodule "harfbuzz"]
 	path = harfbuzz
 	url = https://github.com/harfbuzz/harfbuzz.git
-[submodule "fribidi"]
-	path = fribidi
-	url = https://github.com/notsilverhoft/fribidi
 [submodule "pango"]
 	path = pango
 	url = https://github.com/VitoVan/pango.git
@@ -40,3 +37,6 @@
 [submodule "coi-serviceworker"]
 	path = coi-serviceworker
 	url = https://github.com/gzuidhof/coi-serviceworker.git
+[submodule "fribidi"]
+	path = fribidi
+	url = https://github.com/notsilverhoft/fribidi.git
