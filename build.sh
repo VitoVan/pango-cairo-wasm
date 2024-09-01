@@ -217,8 +217,7 @@ check_result
 ######################
 
 cd ${magicdir}/fribidi
-
-.ci/build-c2man.sh
+sudo chmod +rwx autogen.sh
 export PATH=$PATH:${magicdir}/fribidi/c2man/c2man-install
 
 ./autogen.sh && \
