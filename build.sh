@@ -218,6 +218,7 @@ check_result
 
 cd ${magicdir}/fribidi
 sudo chmod +rwx autogen.sh
+sudo chmod +rwx c2man/c2man-install/c2man
 export PATH=$PATH:${magicdir}/fribidi/c2man/c2man-install
 
 ./autogen.sh && \
@@ -262,3 +263,4 @@ embuilder build sdl2 && \
     embuilder build ogg
 
 check_result
+
