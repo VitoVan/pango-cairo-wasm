@@ -216,19 +216,6 @@ check_result
 ##### fribidi
 ######################
 
-cd ${magicdir}/c2man
-docker build -t 'c2man' .
-c2manImage=c2man
-c2manContainer_id=$(docker create "$c2manImage")
-c2manSource_path=/main/c2man/c2man-install
-
-cd ${magicdir}/fribidi
-mkdir c2man
-
-sudo docker cp "$c2manContainer_id:$c2manSource_path" ${magicdir}/fribidi/c2man
-
-
-
 export PATH=$PATH:${magicdir}/fribidi/c2man/c2man-install
 
 ./autogen.sh && \

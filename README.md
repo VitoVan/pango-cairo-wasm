@@ -4,6 +4,9 @@
 
 Compile [Cairo](https://www.cairographics.org/) / [Pango](https://docs.gtk.org/Pango/index.html) / [PangoCairo](https://docs.gtk.org/PangoCairo) based applications from C to WebAssembly?
 
+***Building With Docker:***
+Use `source main.sh` with `-d output.log` to output main output to a debug file named "`output.log`" (Does not output c2man to file)
+
 Try it online (1.5 ~ 3.5 MB data transfer):
 
 **Cairo**: https://vitovan.com/pango-cairo-wasm/hello-cairo.html
