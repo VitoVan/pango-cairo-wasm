@@ -24,7 +24,7 @@
 
         if [ $2 != null ]; then
 
-            sudo docker build --progress=plain -t 'pangocairowasm' . | tee $2
+            sudo docker build --progress=plain -t 'pangocairowasm' . 2>&1 | tee $2
 
         else
 
