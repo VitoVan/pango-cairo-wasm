@@ -216,6 +216,8 @@ check_result
 ##### fribidi
 ######################
 
+cd ${magicdir}/fribidi
+
 export PATH=$PATH:${magicdir}/fribidi/c2man/c2man-install
 
 ./autogen.sh && \
