@@ -220,7 +220,7 @@ cd ${magicdir}/fribidi
 
 
 
-if [ $USING_DOCKER = false ]; then
+if [ $USINGDOCKER != true ]; then
 
      .ci/build-c2man.sh
 
