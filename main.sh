@@ -1,5 +1,5 @@
 ### C2MAN Setup ###
-
+    export USINGDOCKER=true
     cd c2man
     docker build -t 'c2man' .
     c2manImage=c2man
