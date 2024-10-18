@@ -218,6 +218,14 @@ check_result
 
 cd ${magicdir}/fribidi
 
+
+
+if [ $USING_DOCKER = false ]; then
+
+     .ci/build-c2man.sh
+
+fi
+
 export PATH=$PATH:${magicdir}/fribidi/c2man/c2man-install
 
 ./autogen.sh && \
