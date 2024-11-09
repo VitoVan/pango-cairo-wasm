@@ -1,4 +1,4 @@
-FROM fedora
+FROM fedora:38
 COPY . /magic
 WORKDIR /magic
 ENV magicdir=/magic
