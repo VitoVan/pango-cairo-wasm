@@ -21,7 +21,7 @@ Preview:
 
 ### Setup emcc & pkg-config
 
-#### with Docker
+#### with pre-built Docker
 
 ```bash
 alias emcc="docker run --rm --name pcwa -v $(pwd):/app -w=/app vitovan/pango-cairo-wasm emcc"
@@ -31,16 +31,16 @@ emcc --help
 pkg-config --libs --cflags pangocairo
 ```
 
-#### from Source
+#### build from source
 
-This build.sh only compiles on Fedora, if you can't get one, please modify it before execution.
+This build.sh only compiles on **Fedora 38** (due to the good old [c2man](https://github.com/fribidi/c2man) dependency), if you can't get one, please use Docker to build.
 
 ```bash
 git clone https://github.com/VitoVan/pango-cairo-wasm.git
 cd pango-cairo-wasm
 git submodule init
 git submodule update
-echo -e "export magicdir=${HOME}/pango-cairo-wasm-magic\n$(cat env.sh)" > env.sh
+echo -e "export magicdir=$(pwd)\n$(cat env.sh)" > env.sh
 bash build.sh
 ```
 
@@ -91,3 +91,27 @@ open the following links in your browser:
 
 - http://localhost:4242/hello-cairo.html
 - http://localhost:4242/hello-pangocairo.html
+
+## TODO
+
+- upgrade dependencies to newer version
+- make this script working on modern system (> Fedora 38)
+- make this script working on Debian-based system
+
+## License
+
+DO WHAT THE FUCK YOU WANT TO.
+
+## Contributing
+
+I don't have time to fix my shit, and I don't have time to read your shit.
+
+If you want to add anything to this repo, make sure:
+
+1. don't break the old working code, no matter how ugly it is.
+2. don't change the sub-module remote url, unless the upstream repo changed.
+3. don't add binaries.
+4. make sure your modified version just work, don't add any switches/options unless it is super necessary and discussed before writing them down.
+
+    *just work* = no need to change this readme
+
