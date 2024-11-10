@@ -1,0 +1,42 @@
+[submodule "emsdk"]
+	path = emsdk
+	url = https://github.com/emscripten-core/emsdk.git
+[submodule "zlib"]
+	path = zlib
+	url = https://github.com/madler/zlib.git
+[submodule "libpng"]
+	path = libpng
+	url = https://github.com/glennrp/libpng.git
+[submodule "freetype"]
+	path = freetype
+	url = https://gitlab.freedesktop.org/freetype/freetype.git
+[submodule "libexpat"]
+	path = libexpat
+	url = https://github.com/libexpat/libexpat.git
+[submodule "fontconfig"]
+	path = fontconfig
+	url = https://gitlab.freedesktop.org/fontconfig/fontconfig.git
+[submodule "libffi"]
+	path = libffi
+	url = https://github.com/libffi/libffi.git
+[submodule "glib"]
+	path = glib
+	url = https://github.com/VitoVan/glib.git
+[submodule "cairo"]
+	path = cairo
+	url = https://gitlab.freedesktop.org/cairo/cairo.git
+[submodule "harfbuzz"]
+	path = harfbuzz
+	url = https://github.com/harfbuzz/harfbuzz.git
+[submodule "fribidi"]
+	path = fribidi
+	url = https://github.com/fribidi/fribidi.git
+[submodule "pango"]
+	path = pango
+	url = https://github.com/VitoVan/pango.git
+[submodule "pixman"]
+	path = pixman
+	url = https://gitlab.freedesktop.org/pixman/pixman.git
+[submodule "coi-serviceworker"]
+	path = coi-serviceworker
+	url = https://github.com/gzuidhof/coi-serviceworker.git
